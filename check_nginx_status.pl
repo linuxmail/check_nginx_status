@@ -215,7 +215,9 @@ my $ua = LWP::UserAgent->new(
 );
 
 if ( $o_disable_sslverifyhostname ) {
-  $ua->ssl_opts( 'verify_hostname' => 0 );
+  $ua->ssl_opts( 'verify_hostname' => 0,
+  SSL_verify_mode => '0',
+  );
 }
 
 # we need to enforce the HTTP request is made on the Nagios Host IP and
